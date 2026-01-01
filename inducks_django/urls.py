@@ -18,11 +18,11 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 
-# from api.urls import router as api_router
+from api.urls import router as api_router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('api/', include((api_router.urls, 'api'), namespace='api')),
+    path('api/', include((api_router.urls, 'api'), namespace='api')),
 ]
 
 if settings.DEBUG_TOOLBAR:
