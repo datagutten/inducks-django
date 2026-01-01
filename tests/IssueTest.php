@@ -25,4 +25,9 @@ class IssueTest extends TestCase
         $this->assertEquals('FAa', $indexers[0]->getPersoncode());
         $this->assertEquals('SGr', $indexers[1]->getPersoncode());
     }
+
+//    public function testStories()
+//    {
+//        $issue = $this->em->find(Issue::class, 'no/DP   22');
+//    }
 }

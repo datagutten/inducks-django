@@ -3,10 +3,14 @@
 namespace datagutten\InducksORM\models;
 
 use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\Criteria;
+use Doctrine\ORM\EntityNotFoundException;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\ORM\PersistentCollection;
 use Exception;
+
 
 /**
  * Story
@@ -44,6 +48,9 @@ class Story
     #[ORM\Column(type: 'integer')]
     private int $storyparts;
 
+    #[ORM\Column(type: 'string')]
+    private string $storyheadercode;
+
     #[ORM\ManyToOne(targetEntity: Issue::class)]
     #[ORM\JoinColumn(name: 'issuecodeofstoryitem', referencedColumnName: 'issuecode')]
     private Issue $issueofstoryitem;
@@ -55,11 +62,25 @@ class Story
     #[ORM\JoinColumn(name: 'storycode', referencedColumnName: 'storycode')]
     private HeroCharacter $hero;
 
+    #[ORM\JoinTable(name: 'inducks_storyheader')]
+    #[ORM\JoinColumn(name: 'storyheadercode', referencedColumnName: 'storyheadercode')]
+    #[ORM\InverseJoinColumn(name: 'storyheadercode', referencedColumnName: 'storyheadercode')]
+    #[ORM\ManyToMany(targetEntity: StoryHeader::class)]
+    private Collection $header; //TODO: One story can have multiple headers with different levels
+
     #[ORM\OneToMany(mappedBy: 'fromStory', targetEntity: StoryReference::class)]
     private PersistentCollection $referencesFrom;
 
     #[ORM\OneToMany(mappedBy: 'toStory', targetEntity: StoryReference::class)]
     private PersistentCollection $referencesTo;
+
+    #[ORM\OneToMany(mappedBy: 'story', targetEntity: EntryUrl::class)]
+    private PersistentCollection $urls;
+
+    function __construct()
+    {
+        $this->header = new ArrayCollection();
+    }
 
     function getStorycode(): string
     {
@@ -91,11 +112,10 @@ class Story
     }
 
     /**
-     * Get the date that the story was first published as a DateTimeImmutable object
      * @return DateTimeImmutable The date that the story was first published
      * @throws Exception
      */
-    function getFirstPublicationDate_obj(): DateTimeImmutable
+    function getFirstpublicationdate_obj(): DateTimeImmutable
     {
         try
         {
@@ -109,6 +129,11 @@ class Story
             else //No match, re-throw the exception
                 throw $e;
         }
+    }
+
+    function getFirstPublication()
+    {
+        $entries = $this->originalstoryversion->getEntries();
     }
 
     /**
@@ -131,7 +156,6 @@ class Story
     {
         /** @var StoryVersion $version */
         $version = $this->versions->first();
-
         $criteria = Criteria::create()->where(
             Criteria::expr()->eq('languagecode', $languagecode))->andWhere(
             Criteria::expr()->eq('reallytitle', 'Y'));
@@ -164,9 +188,72 @@ class Story
         return $this->versions;
     }
 
-    public function getHero(): Character
+    public function getHero(): ?Character
     {
-        return $this->hero->getCharacter();
+        try
+        {
+            return $this->hero->getCharacter();
+        }
+        catch (EntityNotFoundException)
+        {
+            return null;
+        }
+    }
+
+    /**
+     * @return Entry[]
+     */
+    public function getEntries(): array
+    {
+        $entries = [];
+        foreach ($this->getVersions() as $version)
+        {
+            foreach ($version->getEntries() as $entry)
+            {
+                //printf("%s %s\n", $entry->getEntrycode(), $entry->getTitle());
+                $entries[] = $entry;
+            }
+        }
+        return $entries;
+    }
+
+    /**
+     * @return Entry[]
+     */
+    public function getEntriesLanguage(): array
+    {
+        $entries = [];
+        foreach ($this->getEntries() as $entry)
+        {
+            $entries[$entry->getLanguagecode()][] = $entry;
+        }
+        ksort($entries);
+        return $entries;
+    }
+
+    /**
+     * @return Entry[]
+     */
+    public function getEntriesCountry(): array
+    {
+        $entries = [];
+        foreach ($this->getEntries() as $entry)
+        {
+            $country = $entry->getIssue()->getPublication()->getCountry()->getCountryName();
+            $entries[$country][] = $entry;
+        }
+        ksort($entries);
+        return $entries;
+    }
+
+    public function getHeader(): StoryHeader
+    {
+        return $this->header->first(); //TODO: Query header level 0
+    }
+
+    public function getHeaders(): PersistentCollection
+    {
+        return $this->header;
     }
 
     /**

@@ -43,7 +43,7 @@ class Site
             return $this->urlbase;
     }
 
-    public function hasImages(): string
+    public function hasImages(): bool
     {
         return $this->images == 'Y';
     }

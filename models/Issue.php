@@ -138,9 +138,20 @@ class Issue
         return $this->oldestdate;
     }
 
+    public function getYear(): string
+    {
+        return substr($this->oldestdate, 0, 4);
+    }
+
     function getIssuecomment(): string
     {
         return $this->issuecomment;
+    }
+
+    public function getJobs(string $type): Collection
+    {
+        $criteria = Criteria::create()->where(Criteria::expr()->eq('inxtransletcol', $type));
+        return $this->jobs->matching($criteria);
     }
 
     /**
@@ -208,6 +219,11 @@ class Issue
         $criteria = Criteria::create()->where(Criteria::expr()->eq('inxtransletcol', 'i'));
         $indexers = $this->jobs->matching($criteria);
         return $indexers->getValues();
+    }
+
+    public function getTranslators(): Collection
+    {
+        return $this->getJobs('t');
     }
 
     public function getDates(): PersistentCollection

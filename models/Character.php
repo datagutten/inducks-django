@@ -44,6 +44,12 @@ class Character
     private PersistentCollection $names;
 
     /**
+     * @var PersistentCollection<int, CharacterUrl>
+     */
+    #[ORM\OneToMany(mappedBy: 'character', targetEntity: CharacterUrl::class)]
+    private PersistentCollection $urls;
+
+    /**
      * @var PersistentCollection<int, EntryCharacterName>
      */
     #[ORM\OneToMany(mappedBy: 'character', targetEntity: EntryCharacterName::class)]
@@ -97,6 +103,16 @@ class Character
         return $names->first();
     }
 
+    public function getLocalizedName2($languageCode): ?string
+    {
+        $criteria = Criteria::create()->where(Criteria::expr()->eq('languagecode', $languageCode));
+        $matches = $this->names->matching($criteria);
+        if (!empty($matches->count()))
+            return $matches->first()->getUniverseName();
+        else
+            return null;
+    }
+
     public function getOfficial(): bool
     {
         return $this->official == 'Y';
@@ -123,7 +139,7 @@ class Character
     }
 
     /**
-     * @return PersistentCollection
+     * @return PersistentCollection<int, Appearance>
      */
     public function getAppearances(): PersistentCollection
     {
@@ -188,5 +204,13 @@ class Character
     public function __toString(): string
     {
         return $this->charactername;
+    }
+
+    /**
+     * @return PersistentCollection<int, CharacterUrl>
+     */
+    public function getUrls(): PersistentCollection
+    {
+        return $this->urls;
     }
 }

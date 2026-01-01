@@ -20,7 +20,7 @@ class EntryJob
     #[ORM\Id]
     private Entry $entry;
 
-    #[ORM\ManyToOne(targetEntity: Person::class)]
+    #[ORM\ManyToOne(targetEntity: Person::class, inversedBy: 'entries')]
     #[ORM\JoinColumn(name: 'personcode', referencedColumnName: 'personcode')]
     #[ORM\Id]
     private Person $person;

@@ -28,7 +28,7 @@ class IssueJob
     #[ORM\JoinColumn(name: 'issuecode', referencedColumnName: 'issuecode')]
     private Issue $issue;
 
-    #[ORM\ManyToOne(targetEntity: Person::class)]
+    #[ORM\ManyToOne(targetEntity: Person::class, inversedBy: 'issueJobs')]
     #[ORM\JoinColumn(name: 'personcode', referencedColumnName: 'personcode')]
     private Person $person;
 

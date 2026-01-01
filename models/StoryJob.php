@@ -20,7 +20,7 @@ class StoryJob
     #[ORM\Id]
     private StoryVersion $storyversion;
 
-    #[ORM\ManyToOne(targetEntity: Person::class)]
+    #[ORM\ManyToOne(targetEntity: Person::class, inversedBy: 'storyjobs')]
     #[ORM\JoinColumn(name: 'personcode', referencedColumnName: 'personcode')]
     #[ORM\Id]
     private Person $person;

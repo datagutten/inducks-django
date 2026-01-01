@@ -31,4 +31,11 @@ class StoryTest extends TestCase
         $story = $references->matching(Criteria::create()->where(Criteria::expr()->eq('fromstorycode', 'AR 113')));
         $this->assertEquals('Last sled to Dawson', $story->first()->getFromStory()->getTitle());
     }
+
+    public function testHeader()
+    {
+        $story = InducksORMBootstrap()->find(Story::class, 'D 91048');
+        $headers = $story->getHeaders()->getValues();
+        $this->assertEquals('Denmark', $story->getHeader()->getTitle());
+    }
 }
