@@ -23,6 +23,9 @@ class Publication(models.Model):
     class Meta:
         db_table = 'inducks_publication'
 
+    def __str__(self):
+        return f'{self.country_id}: {self.title or self.publicationcode}'
+
 
 class PublicationCategory(models.Model):
     publication = helpers.InducksForeignKey('Publication', 'categories')
