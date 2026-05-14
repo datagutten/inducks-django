@@ -8,7 +8,7 @@ from django.db import models
 class InducksForeignKey(models.ForeignKey):
     isv_field: str = None
 
-    def __init__(self, to: str, related_name=None, on_delete=models.PROTECT, **kwargs):
+    def __init__(self, to: str, related_name=None, on_delete=models.CASCADE, **kwargs):
         if type(to) is not str:
             raise ValueError('Referenced model must be str')
 
