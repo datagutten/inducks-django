@@ -172,10 +172,10 @@ class Entry(models.Model):
     class Meta:
         db_table = 'inducks_entry'
 
-    def image(self):
+    def image(self) -> 'EntryURL':
         urls: QuerySet = self.urls.filter(site_id='webusers')
         if urls:
-            return urls.first().get_url()
+            return urls.first()
         else:
             return None
 
