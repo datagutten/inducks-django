@@ -34,6 +34,9 @@ class Person(models.Model):
     def image_url(self):
         return 'https://inducks.org/creators/photos/%s' % self.photofilename
 
+    def __str__(self):
+        return self.fullname
+
 
 class PersonAlias(models.Model):
     person = helpers.InducksForeignKey('Person', related_name='aliases')
