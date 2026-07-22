@@ -16,6 +16,9 @@ class Site(models.Model):
     class Meta:
         db_table = 'inducks_site'
 
+    def __str__(self):
+        return f'{self.sitename} ({self.sitecode})'
+
     def get_url_base(self):
         if self.urlbase.find('outducks') > -1:
             return 'https://inducks.org/hr.php?normalsize=1&image=%s' % (urllib.parse.quote(self.urlbase))
