@@ -210,6 +210,8 @@ class StoryVersion(models.Model):
         return self.kind in ['f', 'g', 't', 'L']
 
     def kind_name(self) -> str:
+        if self.kind == 'n':
+            return _('%d rows per page') % self.rowsperpage
         kinds = {
             'n': _('normal'),
             'k': _('newspaper strip'),
