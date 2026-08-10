@@ -44,11 +44,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends default-libmysq
 COPY --from=builder /usr/src/app/wheels /wheels
 RUN pip install --upgrade pip
 RUN pip install --no-cache /wheels/*
-RUN pip install psycopg2-binary
 
 
 # copy project
-COPY . $APP_HOME
+COPY inducks $APP_HOME/inducks
+COPY api $APP_HOME/api
+COPY inducks_django $APP_HOME/inducks_django
+COPY manage.py $APP_HOME
+COPY launcher.sh $APP_HOME
+COPY gunicorn.conf.py $APP_HOME
+
 WORKDIR $APP_HOME
 
 # chown all the files to the app user
