@@ -9,8 +9,8 @@ FROM python:3.12-bookworm AS builder
 WORKDIR /usr/src/app
 
 # set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 RUN pip install --upgrade pip poetry poetry-plugin-export
 
