@@ -9,7 +9,7 @@ class Character(models.Model):
     official = helpers.InducksBooleanField()
     onetime = helpers.InducksBooleanField()
     heroonly = helpers.InducksBooleanField()
-    charactercomment = models.CharField(max_length=671, blank=True, null=True)
+    charactercomment = models.TextField(blank=True, null=True)
 
     # appearances = models.ManyToManyField('InducksStoryVersion', through='InducksAppearance', through_fields=['charactercode', 'charactercode'])
 
@@ -33,7 +33,7 @@ class Appearance(models.Model):
     storyversion = helpers.InducksForeignKey('StoryVersion', related_name='appearances')
     charactercode = models.TextField(max_length=69)  # unknown king on page 22 just next to GO
     number = models.IntegerField(blank=True, null=True)
-    appearancecomment = models.CharField(max_length=209, blank=True, null=True)
+    appearancecomment = models.TextField(blank=True, null=True)
     doubt = helpers.InducksBooleanField()
 
     def is_unknown(self):

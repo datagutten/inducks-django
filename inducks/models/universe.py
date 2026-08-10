@@ -14,7 +14,7 @@ class UniverseCharacterRelation(models.Model):
 
 class Universe(models.Model):
     universecode = models.CharField(max_length=50, primary_key=True)
-    universecomment = models.CharField(max_length=50, blank=True, null=True)
+    universecomment = models.TextField(blank=True, null=True)
 
     class Meta:
         db_table = 'inducks_universe'

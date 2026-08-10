@@ -23,7 +23,7 @@ class Issue(models.Model):
     attached = models.CharField(max_length=288, blank=True, null=True)
     oldestdate = models.CharField(max_length=10, blank=True, null=True)
     fullyindexed = helpers.InducksBooleanField()
-    issuecomment = models.CharField(max_length=1516, blank=True, null=True)
+    issuecomment = models.TextField(blank=True, null=True)
     error = helpers.InducksBooleanField()
     filledoldestdate = models.CharField(max_length=10, blank=True, null=True)
     locked = helpers.InducksBooleanField()
@@ -122,7 +122,7 @@ class IssuePrice(models.Model):
     issue = helpers.InducksForeignKey('Issue', related_name='prices')
     amount = models.CharField(max_length=86, blank=True, null=True)
     currency = models.CharField(max_length=14, blank=True, null=True)
-    comment = models.CharField(max_length=75, blank=True, null=True)
+    comment = models.TextField(blank=True, null=True)
     sequencenumber = models.IntegerField(blank=True, null=True)
 
     class Meta:
@@ -135,7 +135,7 @@ class IssueRange(models.Model):
     publication = helpers.InducksForeignKey('Publication', related_name='issueranges')
     title = models.CharField(max_length=228, blank=True, null=True)
     circulation = models.CharField(max_length=6, blank=True, null=True)
-    issuerangecomment = models.CharField(max_length=468, blank=True, null=True)
+    issuerangecomment = models.TextField(blank=True, null=True)
     numbersarefake = helpers.InducksBooleanField(default=False)
     error = helpers.InducksBooleanField(default=False)
 
@@ -196,7 +196,7 @@ class EntryCharacterName(models.Model):
 class Equiv(models.Model):
     issue = helpers.InducksForeignKey('Issue', related_name='equiv')
     equivid = models.IntegerField(blank=True, null=True)
-    equivcomment = models.CharField(max_length=3, blank=True, null=True)
+    equivcomment = models.TextField(blank=True, null=True)
 
     class Meta:
         db_table = 'inducks_equiv'

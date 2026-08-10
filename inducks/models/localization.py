@@ -86,7 +86,7 @@ class CharacterName(models.Model):
     language = helpers.InducksForeignKey('Language')
     charactername = models.CharField(max_length=100, blank=True, null=True)
     preferred = helpers.InducksBooleanField()
-    characternamecomment = models.CharField(max_length=99, blank=True, null=True)
+    characternamecomment = models.TextField(blank=True, null=True)
 
     class Meta:
         db_table = 'inducks_charactername'

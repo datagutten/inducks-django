@@ -29,7 +29,7 @@ class LogoCharacter(models.Model):
     character = helpers.InducksForeignKey('Character')
     reallyintitle = helpers.InducksBooleanField()
     number = models.IntegerField(blank=True, null=True)
-    logocharactercomment = models.CharField(max_length=28, blank=True, null=True)
+    logocharactercomment = models.TextField(blank=True, null=True)
 
     class Meta:
         db_table = 'inducks_logocharacter'
@@ -44,7 +44,7 @@ class Studio(models.Model):
     description = models.TextField(blank=True, null=True)
     othertext = models.CharField(max_length=94, blank=True, null=True)
     photofilename = models.CharField(max_length=18, blank=True, null=True)
-    photocomment = models.CharField(max_length=40, blank=True, null=True)
+    photocomment = models.TextField(blank=True, null=True)
     photosource = models.CharField(max_length=42, blank=True, null=True)
     studiorefs = models.CharField(max_length=204, blank=True, null=True)
 
@@ -77,7 +77,7 @@ class SubSeriesName(models.Model):
     language = helpers.InducksForeignKey('Language')
     subseriesname = models.CharField(max_length=300, blank=True, null=True)
     preferred = helpers.InducksBooleanField()
-    subseriesnamecomment = models.CharField(max_length=28, blank=True, null=True)
+    subseriesnamecomment = models.TextField(blank=True, null=True)
 
     class Meta:
         db_table = 'inducks_subseriesname'
@@ -104,7 +104,7 @@ class TeamMember(models.Model):
 
 class InducksPrivEntry(models.Model):  # Not used
     entrycode = models.CharField(max_length=22, primary_key=True)
-    entrycomment = models.CharField(max_length=1936, blank=True, null=True)
+    entrycomment = models.TextField(blank=True, null=True)
 
     class Meta:
         db_table = 'induckspriv_entry'
@@ -112,7 +112,7 @@ class InducksPrivEntry(models.Model):  # Not used
 
 class InducksPrivIssue(models.Model):  # Not used
     issuecode = models.CharField(max_length=16, primary_key=True)
-    issuecomment = models.CharField(max_length=959, blank=True, null=True)
+    issuecomment = models.TextField(blank=True, null=True)
 
     class Meta:
         db_table = 'induckspriv_issue'
@@ -120,7 +120,7 @@ class InducksPrivIssue(models.Model):  # Not used
 
 class InducksPrivStory(models.Model):  # Not used
     storycode = models.CharField(max_length=17, primary_key=True)
-    storycomment = models.CharField(max_length=4098, blank=True, null=True)
+    storycomment = models.TextField(blank=True, null=True)
 
     class Meta:
         db_table = 'induckspriv_story'

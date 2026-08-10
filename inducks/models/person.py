@@ -9,7 +9,7 @@ class Person(models.Model):
                                             isv_field='nationalitycountrycode', blank=True, null=True)
     fullname = models.TextField(blank=True, null=True)
     official = helpers.InducksBooleanField()
-    personcomment = models.CharField(max_length=221, blank=True, null=True)
+    personcomment = models.TextField(blank=True, null=True)
     unknownstudiomember = helpers.InducksBooleanField()
     isfake = helpers.InducksBooleanField()
     numberofindexedissues = models.IntegerField(blank=True, null=True)
@@ -23,7 +23,7 @@ class Person(models.Model):
     comicstext = models.CharField(max_length=927, blank=True, null=True)
     othertext = models.CharField(max_length=307, blank=True, null=True)
     photofilename = models.CharField(max_length=32, blank=True, null=True)
-    photocomment = models.CharField(max_length=68, blank=True, null=True)
+    photocomment = models.TextField(blank=True, null=True)
     photosource = models.CharField(max_length=67, blank=True, null=True)
     personrefs = models.CharField(max_length=179, blank=True, null=True)
 

@@ -7,7 +7,7 @@ class EntryJob(models.Model):
     entry = helpers.InducksForeignKey('Entry', related_name='jobs')
     person = helpers.InducksForeignKey('Person', related_name='entry_jobs')
     transletcol = models.CharField(max_length=1, blank=True, null=True)
-    entryjobcomment = models.CharField(max_length=85, blank=True, null=True)
+    entryjobcomment = models.TextField(blank=True, null=True)
     doubt = helpers.InducksBooleanField()
 
     class Meta:
@@ -33,7 +33,7 @@ class StoryJob(models.Model):
     storyversion = helpers.InducksForeignKey('StoryVersion', related_name='jobs')
     person = helpers.InducksForeignKey('Person', related_name='story_jobs')
     plotwritartink = models.CharField(max_length=1, blank=True, null=True)
-    storyjobcomment = models.CharField(max_length=141, blank=True, null=True)
+    storyjobcomment = models.TextField(blank=True, null=True)
     indirect = helpers.InducksBooleanField()
     doubt = helpers.InducksBooleanField()
 
@@ -63,7 +63,7 @@ class MovieJob(models.Model):
     movie = helpers.InducksForeignKey('Movie', related_name='jobs')
     person = helpers.InducksForeignKey('Person', related_name='movie_jobs')
     role = models.CharField(max_length=15, blank=True, null=True)
-    moviejobcomment = models.CharField(max_length=82, blank=True, null=True)
+    moviejobcomment = models.TextField(blank=True, null=True)
     indirect = models.CharField(max_length=1, blank=True, null=True)
     doubt = helpers.InducksBooleanField()
 
@@ -79,7 +79,7 @@ class PublishingJob(models.Model):
     publisher = helpers.InducksForeignKey('Publisher', related_name='jobs', db_column='publisher',
                                           isv_field='publisherid')
     issue = helpers.InducksForeignKey('Issue', related_name='publishingJobs')
-    publishingjobcomment = models.CharField(max_length=67, blank=True, null=True)
+    publishingjobcomment = models.TextField(blank=True, null=True)
 
     class Meta:
         db_table = 'inducks_publishingjob'
@@ -93,7 +93,7 @@ class IssueJob(models.Model):
     issue = helpers.InducksForeignKey('Issue', related_name='jobs')
     person = helpers.InducksForeignKey('Person', related_name='issueJobs')
     inxtransletcol = models.CharField(max_length=1)
-    issuejobcomment = models.CharField(max_length=50, blank=True, null=True)
+    issuejobcomment = models.TextField(blank=True, null=True)
     doubt = helpers.InducksBooleanField()
 
     class Meta:

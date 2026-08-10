@@ -16,7 +16,7 @@ class Story(models.Model):
     endpublicationdate = models.CharField(max_length=10, blank=True, null=True)
     title = models.TextField(blank=True, null=True)
     usedifferentcode = models.CharField(max_length=20, blank=True, null=True)
-    storycomment = models.CharField(max_length=664, blank=True, null=True)
+    storycomment = models.TextField(blank=True, null=True)
     error = helpers.InducksBooleanField()
     repcountrysummary = models.TextField(blank=True, null=True)
     storyparts = models.IntegerField(blank=True, null=True)
@@ -76,7 +76,7 @@ class StoryCodes(models.Model):
     story = helpers.InducksForeignKey('Story', related_name='storycodes')
     alternativecode = models.CharField(max_length=72, blank=True, null=True)
     unpackedcode = models.CharField(max_length=82, blank=True, null=True)
-    codecomment = models.CharField(max_length=45, blank=True, null=True)
+    codecomment = models.TextField(blank=True, null=True)
 
     class Meta:
         db_table = 'inducks_storycodes'
@@ -116,7 +116,7 @@ class StoryHeader(models.Model):
 class StorySubSeries(models.Model):
     story = helpers.InducksForeignKey('Story', related_name='subseries')
     subseriescode = models.CharField(max_length=144, blank=True, null=True)
-    storysubseriescomment = models.CharField(max_length=50, blank=True, null=True)
+    storysubseriescomment = models.TextField(blank=True, null=True)
 
     class Meta:
         db_table = 'inducks_storysubseries'
@@ -254,7 +254,7 @@ class SubStory(models.Model):
     part = models.IntegerField(blank=True, null=True)
     firstpublicationdate = models.CharField(max_length=10, blank=True, null=True)
     title = models.CharField(max_length=101, blank=True, null=True)
-    substorycomment = models.CharField(max_length=607, blank=True, null=True)
+    substorycomment = models.TextField(blank=True, null=True)
     error = helpers.InducksBooleanField()
     locked = helpers.InducksBooleanField()
     inputfilecode = models.IntegerField(blank=True, null=True)
