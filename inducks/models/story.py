@@ -33,6 +33,10 @@ class Story(models.Model):
     def originalstoryversion(self) -> 'StoryVersion':
         return self.versions.get(storyversioncode=self.originalstoryversioncode)
 
+    @cached_property
+    def descriptions(self):
+        return self.originalstoryversion.descriptions.all()
+
     def entries(self) -> List['inducks_models.Entry']:
         entries = []
         for version in self.versions.all():
