@@ -58,7 +58,7 @@ class Story(models.Model):
 
     def header(self):
         try:
-            return StoryHeader.objects.get(storyheadercode=self.storyheadercode, level=1)
+            return StoryHeader.objects.get(storyheadercode=self.storyheadercode, level=0)
         except StoryHeader.DoesNotExist:
             return None
 
