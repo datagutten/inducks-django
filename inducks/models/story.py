@@ -1,8 +1,11 @@
+from functools import cache
 from typing import List
 
 from django.db import models
 from django.db.models import QuerySet
+from django.utils.functional import cached_property
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation import ngettext_lazy
 
 import inducks.models as inducks_models
 from inducks.models import helpers
