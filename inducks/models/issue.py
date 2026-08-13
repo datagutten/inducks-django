@@ -3,6 +3,8 @@ import re
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import models, DatabaseError
 from django.db.models import QuerySet
+from django.utils.functional import cached_property
+from django.core.cache import cache
 
 from inducks.models import jobs
 from inducks.models import helpers
@@ -83,7 +85,8 @@ class Issue(models.Model):
         else:
             return '%s %s - %s' % (self.publication.title, self.issuenumber, self.title)
 
-    def cover(self):
+    @cached_property
+    def cover(self) -> 'Entry':
         try:
             return self.entries.get(position='a')
         except ObjectDoesNotExist:
