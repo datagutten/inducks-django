@@ -61,7 +61,7 @@ WORKDIR $APP_HOME
 
 # change to the app user
 # USER app
-# RUN python manage.py makemigrations
+RUN python manage.py makemigrations
 
 RUN chmod +x launcher.sh
 CMD /home/app/web/launcher.sh
