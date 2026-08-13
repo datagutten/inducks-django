@@ -215,7 +215,7 @@ class StoryVersion(models.Model):
 
     def kind_name(self) -> str:
         if self.kind == 'n':
-            return _('%d rows per page') % self.rowsperpage
+            return ngettext_lazy('%d rows per page', '%d row per page', self.rowsperpage) % self.rowsperpage
         kinds = {
             'n': _('normal'),
             'k': _('newspaper strip'),
