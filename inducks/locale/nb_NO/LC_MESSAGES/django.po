@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-10 16:26+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: inducks/models/jobs.py:22
+msgid "letterer"
+msgstr ""
+
+#: inducks/models/jobs.py:23
+msgid "translator"
+msgstr ""
+
+#: inducks/models/jobs.py:24
+msgid "colorist"
+msgstr ""
+
+#: inducks/models/jobs.py:49
+msgid "plot"
+msgstr ""
+
+#: inducks/models/jobs.py:50
+msgid "writer"
+msgstr ""
+
+#: inducks/models/jobs.py:51
+msgid "artist"
+msgstr ""
+
+#: inducks/models/jobs.py:52
+msgid "inker"
+msgstr ""
+
+#: inducks/models/jobs.py:53
+msgid "reference"
+msgstr ""
+
+#: inducks/models/jobs.py:54
+msgid "maintainer"
+msgstr ""
+
+#: inducks/models/story.py:222
+#, python-format
+msgid "%d rows per page"
+msgid_plural "%d row per page"
+msgstr[0] "%d rader per side"
+msgstr[1] "%d rad per side"
+
+#: inducks/models/story.py:224
+msgid "normal"
+msgstr ""
+
+#: inducks/models/story.py:225
+msgid "newspaper strip"
+msgstr "avisstripe"
+
+#: inducks/models/story.py:226
+msgid "illustration"
+msgstr "illustrasjon"
+
+#: inducks/models/story.py:227
+msgid "cover"
+msgstr ""
+
+#: inducks/models/story.py:228
+msgid "centerfold"
+msgstr ""
+
+#: inducks/models/story.py:229
+msgid "text"
+msgstr "tekst"
+
+#: inducks/models/story.py:230
+msgid "article"
+msgstr "artikkel"
+
+#: inducks/models/story.py:231
+msgid "game or puzzle"
+msgstr "spill"
+
+#: inducks/models/story.py:232
+msgid "strange layout"
+msgstr "spesiell layout"
+
+#: inducks/models/story.py:233
+msgid "landscape painting"
+msgstr ""
+
+#: inducks/models/story.py:234
+msgid "portrait painting"
+msgstr ""
