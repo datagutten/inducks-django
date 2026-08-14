@@ -82,7 +82,7 @@ class IssueURL(URLBase):
 
 
 class PersonURL(URLBase):
-    person = helpers.InducksForeignKey('Person')
+    person = helpers.InducksForeignKey('Person', related_name='urls')
     site = helpers.InducksForeignKey('Site', related_name='persons')
 
     class Meta:
@@ -91,7 +91,7 @@ class PersonURL(URLBase):
 
 
 class PublicationURL(URLBase):
-    publication = helpers.InducksForeignKey('Publication')
+    publication = helpers.InducksForeignKey('Publication', related_name='urls')
     site = helpers.InducksForeignKey('Site', related_name='publications')
 
     class Meta:
