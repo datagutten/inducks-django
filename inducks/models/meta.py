@@ -24,15 +24,24 @@ class Log(models.Model):
     number = models.IntegerField(primary_key=True)
     logkey = models.CharField(max_length=100, blank=True, null=True)
     storycode = models.CharField(max_length=50, blank=True, null=True)
-    logid = models.CharField(max_length=4, blank=True, null=True)
+    logid = helpers.InducksForeignKey('LogData')
     logtype = models.CharField(max_length=1, blank=True, null=True)
-    par1 = models.CharField(max_length=1847, blank=True, null=True)
-    par2 = models.CharField(max_length=1846, blank=True, null=True)
-    par3 = models.CharField(max_length=381, blank=True, null=True)
+    par1 = models.TextField(blank=True, null=True)
+    par2 = models.TextField(blank=True, null=True)
+    par3 = models.TextField(blank=True, null=True)
     marked = helpers.InducksBooleanField()
-    inputfilecode = models.IntegerField(blank=True, null=True)
+    inputfile = helpers.InducksForeignKey('InputFile', blank=True, null=True)
     maintenanceteam = helpers.InducksForeignKey('Team', 'logs', isv_field='maintenanceteamcode', blank=True,
                                                 null=True)
+
+    def __str__(self):
+        if self.logid:
+            text = self.logid.logtext
+            count = sum(text[i:].startswith('%s') for i in range(len(text)))
+            values = [self.par1, self.par2, self.par3][:count]
+            return self.logid.logtext.replace('%s', '{}').format(*values)
+        else:
+            return self.par1
 
     class Meta:
         db_table = 'inducks_log'
@@ -41,7 +50,7 @@ class Log(models.Model):
 class LogData(models.Model):
     logid = models.CharField(max_length=4, primary_key=True)
     category = models.IntegerField(blank=True, null=True)
-    logtext = models.CharField(max_length=108, blank=True, null=True)
+    logtext = models.TextField(blank=True, null=True)
 
     class Meta:
         db_table = 'inducks_logdata'
