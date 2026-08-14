@@ -19,9 +19,9 @@ class EntryJob(models.Model):
 
     def role_name(self):
         roles = {
-            'l': _('letterer'),
-            't': _('translator'),
-            'c': _('colorist'),
+            'l': _('Letterer'),
+            't': _('Translator'),
+            'c': _('Colorist'),
         }
         if self.transletcol in roles:
             return roles[self.transletcol]
@@ -46,12 +46,12 @@ class StoryJob(models.Model):
 
     def role_name(self):
         roles = {
-            'p': _('plot'),
-            'w': _('writer'),
-            'a': _('artist'),
-            'i': _('inker'),
-            'r': _('reference'),
-            'm': _('maintainer'),
+            'p': _('Plot'),
+            'w': _('Writer'),
+            'a': _('Artist'),
+            'i': _('Inking'),
+            'r': _('Reference'),
+            'm': _('Maintainer'),
         }
         if self.plotwritartink in roles:
             return roles[self.plotwritartink]
