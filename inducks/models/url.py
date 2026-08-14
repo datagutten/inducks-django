@@ -41,9 +41,10 @@ class URLBase(models.Model):
 
 
 class CharacterURL(URLBase):
-    character = helpers.InducksForeignKey('Character')
+    character = helpers.InducksForeignKey('Character', related_name='urls')
     site = helpers.InducksForeignKey('Site', related_name='characters', blank=True, null=True)
     story = helpers.InducksForeignKey('Story', related_name='character_urls', blank=True, null=True)
+    entry = helpers.InducksForeignKey('Entry', blank=True, null=True)
 
     class Meta:
         db_table = 'inducks_characterurl'
