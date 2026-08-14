@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-10 16:26+0200\n"
+"POT-Creation-Date: 2026-08-14 18:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,88 +18,101 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: inducks/models/jobs.py:22
-msgid "letterer"
+msgid "Letterer"
 msgstr ""
 
 #: inducks/models/jobs.py:23
-msgid "translator"
+msgid "Translator"
 msgstr ""
 
 #: inducks/models/jobs.py:24
-msgid "colorist"
+msgid "Colorist"
 msgstr ""
 
 #: inducks/models/jobs.py:49
-msgid "plot"
+msgid "Plot"
 msgstr ""
 
 #: inducks/models/jobs.py:50
-msgid "writer"
+msgid "Writer"
 msgstr ""
 
 #: inducks/models/jobs.py:51
-msgid "artist"
+msgid "Artist"
 msgstr ""
 
 #: inducks/models/jobs.py:52
-msgid "inker"
+msgid "Inking"
 msgstr ""
 
 #: inducks/models/jobs.py:53
-msgid "reference"
+msgid "Reference"
 msgstr ""
 
 #: inducks/models/jobs.py:54
-msgid "maintainer"
+msgid "Maintainer"
 msgstr ""
 
-#: inducks/models/story.py:222
+#: inducks/models/story.py:226
 #, python-format
 msgid "%d rows per page"
 msgid_plural "%d row per page"
 msgstr[0] "%d rader per side"
 msgstr[1] "%d rad per side"
 
-#: inducks/models/story.py:224
-msgid "normal"
-msgstr ""
-
-#: inducks/models/story.py:225
-msgid "newspaper strip"
-msgstr "avisstripe"
-
-#: inducks/models/story.py:226
-msgid "illustration"
-msgstr "illustrasjon"
-
-#: inducks/models/story.py:227
-msgid "cover"
-msgstr ""
-
 #: inducks/models/story.py:228
-msgid "centerfold"
+msgid "Story"
 msgstr ""
 
 #: inducks/models/story.py:229
-msgid "text"
-msgstr "tekst"
+#, fuzzy
+#| msgid "newspaper strip"
+msgid "Newspaper strip"
+msgstr "avisstripe"
 
 #: inducks/models/story.py:230
-msgid "article"
-msgstr "artikkel"
+#, fuzzy
+#| msgid "illustration"
+msgid "Illustration"
+msgstr "illustrasjon"
 
 #: inducks/models/story.py:231
-msgid "game or puzzle"
-msgstr "spill"
+msgid "Cover"
+msgstr ""
 
 #: inducks/models/story.py:232
-msgid "strange layout"
-msgstr "spesiell layout"
+msgid "Centerfold"
+msgstr ""
 
 #: inducks/models/story.py:233
-msgid "landscape painting"
+msgid "Text story"
 msgstr ""
 
 #: inducks/models/story.py:234
-msgid "portrait painting"
+#, fuzzy
+#| msgid "article"
+msgid "Article"
+msgstr "artikkel"
+
+#: inducks/models/story.py:235
+#, fuzzy
+#| msgid "game or puzzle"
+msgid "Game or puzzle"
+msgstr "spill"
+
+#: inducks/models/story.py:236
+#, fuzzy
+#| msgid "strange layout"
+msgid "Strange layout"
+msgstr "spesiell layout"
+
+#: inducks/models/story.py:237
+msgid "Painting (landscape)"
 msgstr ""
+
+#: inducks/models/story.py:238
+msgid "Painting (portrait)"
+msgstr ""
+
+#~ msgid "text"
+#~ msgstr "tekst"
