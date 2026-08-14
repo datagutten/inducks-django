@@ -185,6 +185,12 @@ class Entry(models.Model):
     def storycode(self):
         return self.storyversion.storycode
 
+    def logo_characters(self):  # -> list['models.LogoCharacter']:
+        characters = list(self.logoCharacters.all())  # Force django to load all results
+        if not characters[0] or characters[0].charactercode == '--':
+            return None
+        return characters
+
 
 class EntryCharacterName(models.Model):
     entry = helpers.InducksForeignKey('Entry', 'character_names')
