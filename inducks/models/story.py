@@ -72,7 +72,7 @@ class Story(models.Model):
 class StoryCreationDate(models.Model):
     story = helpers.InducksForeignKey('Story', 'creation_date')
     creationdate = models.CharField(max_length=10, null=True, blank=True)
-    creationcomment = models.CharField(max_length=26, null=True, blank=True)
+    creationcomment = models.TextField(blank=True, null=True)
 
     class Meta:
         db_table = 'inducks_storycreationdate'
