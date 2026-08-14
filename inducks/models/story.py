@@ -220,17 +220,17 @@ class StoryVersion(models.Model):
         if self.kind == 'n':
             return ngettext_lazy('%d rows per page', '%d row per page', self.rowsperpage) % self.rowsperpage
         kinds = {
-            'n': _('normal'),
-            'k': _('newspaper strip'),
-            'i': _('illustration'),
-            'c': _('cover'),
-            'f': _('centerfold'),
-            't': _('text'),
-            'a': _('article'),
-            'g': _('game or puzzle'),
-            's': _('strange layout'),
-            'L': _('landscape painting'),
-            'P': _('portrait painting'),
+            'n': _('Story'),
+            'k': _('Newspaper strip'),
+            'i': _('Illustration'),
+            'c': _('Cover'),
+            'f': _('Centerfold'),
+            't': _('Text story'),
+            'a': _('Article'),
+            'g': _('Game or puzzle'),
+            's': _('Strange layout'),
+            'L': _('Painting (landscape)'),
+            'P': _('Painting (portrait)'),
         }
         if self.kind in kinds:
             return kinds[self.kind]
