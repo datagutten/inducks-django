@@ -168,7 +168,7 @@ class StoryVersion(models.Model):
     def storycode(self):
         return self.story_id
 
-    def plot_writ_art_ink(self, role):
+    def plot_writ_art_ink(self, role: str):
         # return self.jobs.filter(plotwritartink=role)
         # return jobs.InducksStoryJob.objects.filter(plotwritartink=role, storyversion_id=self).select_related('person')
         jobs = []
@@ -215,6 +215,27 @@ class StoryVersion(models.Model):
     @property
     def is_unknown(self):
         return self.kind in ['f', 'g', 't', 'L']
+
+    def format_jobs(self):
+        jobs = {}
+        if self.is_article:
+            jobs[_('Text')] = self.writer
+        else:
+            if self.plotsummary == self.writsummary is not None:
+                jobs[_('Writing')] = self.writer
+            else:
+                if self.plot:
+                    jobs[_('Plot')] = self.plot
+                if self.writer:
+                    jobs[_('Writing')] = self.writer
+
+            if self.artsummary == self.inksummary:
+                jobs[_('Art')] = self.art
+            else:
+                jobs[_('Pencils')] = self.art
+                jobs[_('Ink')] = self.ink
+
+        return jobs
 
     def kind_name(self) -> str:
         if self.kind == 'n':
