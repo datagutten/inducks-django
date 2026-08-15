@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-14 18:54+0200\n"
-"PO-Revision-Date: 2026-08-14 17:05+0000\n"
+"PO-Revision-Date: 2026-08-15 15:23+0000\n"
 "Last-Translator: admin <weblate@quadduo.net>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.quadduo.net/projects/"
 "inducks-django/inducks/nb_NO/>\n"
@@ -37,11 +37,11 @@ msgstr "Idé"
 
 #: inducks/models/jobs.py:50
 msgid "Writer"
-msgstr ""
+msgstr "Tekst"
 
 #: inducks/models/jobs.py:51
 msgid "Artist"
-msgstr ""
+msgstr "Tegninger"
 
 #: inducks/models/jobs.py:52
 msgid "Inking"
