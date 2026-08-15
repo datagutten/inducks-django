@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-15 11:04+0200\n"
+"POT-Creation-Date: 2026-08-15 15:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,25 +54,23 @@ msgstr ""
 msgid "Maintainer"
 msgstr ""
 
-#: inducks/models/story.py:222 inducks/test_jobs.py:33 inducks/test_jobs.py:40
+#: inducks/models/story.py:222
 msgid "Text"
 msgstr ""
 
 #: inducks/models/story.py:225 inducks/models/story.py:230
-#: inducks/test_jobs.py:26 inducks/test_jobs.py:41
 msgid "Writing"
 msgstr ""
 
-#: inducks/models/story.py:233 inducks/test_jobs.py:27 inducks/test_jobs.py:34
-#: inducks/test_jobs.py:42
+#: inducks/models/story.py:233
 msgid "Art"
 msgstr ""
 
-#: inducks/models/story.py:235 inducks/test_jobs.py:16
+#: inducks/models/story.py:235
 msgid "Pencils"
 msgstr ""
 
-#: inducks/models/story.py:236 inducks/test_jobs.py:17
+#: inducks/models/story.py:236
 msgid "Ink"
 msgstr ""
 

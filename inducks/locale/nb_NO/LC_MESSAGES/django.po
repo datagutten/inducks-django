@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-14 18:54+0200\n"
+"POT-Creation-Date: 2026-08-15 15:32+0000\n"
 "PO-Revision-Date: 2026-08-15 15:32+0000\n"
 "Last-Translator: admin <weblate@quadduo.net>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.quadduo.net/projects/"
@@ -32,7 +32,7 @@ msgstr "Oversetter"
 msgid "Colorist"
 msgstr "Fargelegger"
 
-#: inducks/models/jobs.py:49
+#: inducks/models/jobs.py:49 inducks/models/story.py:228
 msgid "Plot"
 msgstr "Idé"
 
@@ -56,54 +56,82 @@ msgstr "Referanse"
 msgid "Maintainer"
 msgstr "Vedlikeholder"
 
-#: inducks/models/story.py:226
-#, python-format
-msgid "%d rows per page"
-msgid_plural "%d row per page"
+#: inducks/models/story.py:222
+msgid "Text"
+msgstr ""
+
+#: inducks/models/story.py:225 inducks/models/story.py:230
+#, fuzzy
+#| msgid "Writer"
+msgid "Writing"
+msgstr "Tekst"
+
+#: inducks/models/story.py:233
+#, fuzzy
+#| msgid "Artist"
+msgid "Art"
+msgstr "Tegninger"
+
+#: inducks/models/story.py:235
+msgid "Pencils"
+msgstr ""
+
+#: inducks/models/story.py:236
+#, fuzzy
+#| msgid "Inking"
+msgid "Ink"
+msgstr "Tusjing"
+
+#: inducks/models/story.py:242
+#, fuzzy, python-format
+#| msgid "%d rows per page"
+#| msgid_plural "%d row per page"
+msgid "%d row per page"
+msgid_plural "%d rows per page"
 msgstr[0] "%d rader per side"
 msgstr[1] "%d rad per side"
 
-#: inducks/models/story.py:228
+#: inducks/models/story.py:244
 msgid "Story"
 msgstr "Historie"
 
-#: inducks/models/story.py:229
+#: inducks/models/story.py:245
 msgid "Newspaper strip"
 msgstr "Avisstripe"
 
-#: inducks/models/story.py:230
+#: inducks/models/story.py:246
 msgid "Illustration"
 msgstr "Illustrasjon"
 
-#: inducks/models/story.py:231
+#: inducks/models/story.py:247
 msgid "Cover"
 msgstr "Forside"
 
-#: inducks/models/story.py:232
+#: inducks/models/story.py:248
 msgid "Centerfold"
 msgstr "Midtside"
 
-#: inducks/models/story.py:233
+#: inducks/models/story.py:249
 msgid "Text story"
 msgstr "Teksthistorie"
 
-#: inducks/models/story.py:234
+#: inducks/models/story.py:250
 msgid "Article"
 msgstr "Artikkel"
 
-#: inducks/models/story.py:235
+#: inducks/models/story.py:251
 msgid "Game or puzzle"
 msgstr "Spill/oppgave"
 
-#: inducks/models/story.py:236
+#: inducks/models/story.py:252
 msgid "Strange layout"
 msgstr "Spesiell layout"
 
-#: inducks/models/story.py:237
+#: inducks/models/story.py:253
 msgid "Painting (landscape)"
 msgstr "Maleri (liggende)"
 
-#: inducks/models/story.py:238
+#: inducks/models/story.py:254
 msgid "Painting (portrait)"
 msgstr "Maleri (stående)"
 
