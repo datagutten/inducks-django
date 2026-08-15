@@ -4,9 +4,10 @@ from inducks.models import helpers
 
 class Person(models.Model):
     personcode = models.CharField(max_length=79, primary_key=True)
-    nationality = helpers.InducksForeignKey('Country', related_name='persons',
-                                            db_column='nationalitycountrycode',
-                                            isv_field='nationalitycountrycode', blank=True, null=True)
+    nationalitycountry = helpers.InducksForeignKey('Country', related_name='persons',
+                                                   db_column='nationalitycountrycode',
+                                                   isv_field='nationalitycountrycode',
+                                                   blank=True, null=True)
     fullname = models.TextField(blank=True, null=True)
     official = helpers.InducksBooleanField()
     personcomment = models.TextField(blank=True, null=True)
@@ -18,10 +19,10 @@ class Person(models.Model):
     bornplace = models.CharField(max_length=30, blank=True, null=True)
     deceaseddate = helpers.InducksDateField(blank=True, null=True)
     deceasedplace = models.CharField(max_length=31, blank=True, null=True)
-    education = models.CharField(max_length=189, blank=True, null=True)
-    moviestext = models.CharField(max_length=879, blank=True, null=True)
-    comicstext = models.CharField(max_length=927, blank=True, null=True)
-    othertext = models.CharField(max_length=307, blank=True, null=True)
+    education = models.TextField(blank=True, null=True)
+    moviestext = models.TextField(blank=True, null=True)
+    comicstext = models.TextField(blank=True, null=True)
+    othertext = models.TextField(blank=True, null=True)
     photofilename = models.CharField(max_length=32, blank=True, null=True)
     photocomment = models.TextField(blank=True, null=True)
     photosource = models.CharField(max_length=67, blank=True, null=True)
