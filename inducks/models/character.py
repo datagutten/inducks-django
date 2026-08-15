@@ -1,5 +1,7 @@
 from django.db import models
+from django.db.models import QuerySet
 
+import inducks.models as inducks_models
 from . import helpers
 
 
@@ -27,6 +29,9 @@ class Character(models.Model):
 
     def appearances(self):
         return Appearance.objects.filter(charactercode=self.charactercode).values_list('storyversion')
+
+    def image_urls(self) -> QuerySet['inducks_models.CharacterURL']:
+        return self.urls.filter(site_id='webusers-char0')
 
 
 class Appearance(models.Model):

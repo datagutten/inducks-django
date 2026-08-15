@@ -7,7 +7,7 @@ from django.utils.functional import cached_property
 from django.core.cache import cache
 
 from inducks.models import jobs
-from inducks.models import helpers
+from inducks import models as inducks_models
 
 issuerangecode_cache = {}
 
@@ -174,6 +174,9 @@ class Entry(models.Model):
 
     class Meta:
         db_table = 'inducks_entry'
+
+    def image_urls(self) -> QuerySet['inducks_models.EntryURL']:
+        return self.urls.filter(site__images=True)
 
     def image(self) -> 'EntryURL':
         urls: QuerySet = self.urls.filter(site_id='webusers')

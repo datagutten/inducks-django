@@ -259,7 +259,10 @@ class StoryVersion(models.Model):
             return ''
 
     def images(self) -> QuerySet[inducks_models.Entry]:
-        return self.entries.exclude(urls=None).filter(urls__site='webusers')
+        return self.entries.exclude(urls=None).filter(urls__site__images=True)
+
+    def image_urls(self):
+        return inducks_models.EntryURL.objects.filter(site__images=True, entry__storyversion_id=self.storyversioncode)
 
     def image(self):
         entry = self.images().first()
