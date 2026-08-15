@@ -4,10 +4,10 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db import models, DatabaseError
 from django.db.models import QuerySet
 from django.utils.functional import cached_property
-from django.core.cache import cache
 
-from inducks.models import jobs
 from inducks import models as inducks_models
+from inducks.models import helpers
+from inducks.models import jobs
 
 issuerangecode_cache = {}
 
