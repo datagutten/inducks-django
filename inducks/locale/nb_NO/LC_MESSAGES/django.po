@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-08-15 15:32+0000\n"
-"PO-Revision-Date: 2026-08-15 15:32+0000\n"
+"PO-Revision-Date: 2026-08-15 15:33+0000\n"
 "Last-Translator: admin <weblate@quadduo.net>\n"
 "Language-Team: Norwegian Bokmål <https://weblate.quadduo.net/projects/"
 "inducks-django/inducks/nb_NO/>\n"
@@ -58,7 +58,7 @@ msgstr "Vedlikeholder"
 
 #: inducks/models/story.py:222
 msgid "Text"
-msgstr ""
+msgstr "Tekst"
 
 #: inducks/models/story.py:225 inducks/models/story.py:230
 #, fuzzy
@@ -74,7 +74,7 @@ msgstr "Tegninger"
 
 #: inducks/models/story.py:235
 msgid "Pencils"
-msgstr ""
+msgstr "Skisser"
 
 #: inducks/models/story.py:236
 #, fuzzy
